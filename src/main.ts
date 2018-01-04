@@ -77,9 +77,9 @@ function rollDie(die: Die): RolledDie {
 
 //////////////////////////////////////////////////////////////////////////
 
-const available = document.getElementById('available') as HTMLSpanElement;
-const played = document.getElementById('played') as HTMLSpanElement;
-const in_hand = document.getElementById('in-hand') as HTMLSpanElement;
+const available = document.getElementById('available') as HTMLDivElement;
+const played = document.getElementById('played') as HTMLDivElement;
+const in_hand = document.getElementById('in-hand') as HTMLDivElement;
 
 const brains = document.getElementById('brains') as HTMLSpanElement;
 const shots = document.getElementById('shots') as HTMLSpanElement;
@@ -91,9 +91,30 @@ const button_play = document.getElementById('button-play') as HTMLButtonElement;
 var gamestate: GameState;
 
 function printGameState() {
-    available.textContent = gamestate.availableDice.map(d => Die[d]).toString();
-    played.textContent = gamestate.playedDice.toString();
-    in_hand.textContent = gamestate.inHand.map(d => Die[d]).toString();
+    available.innerHTML = '';
+    gamestate.availableDice.map(d => {
+        let e = document.createElement('div');
+        e.classList.add('die');
+        e.classList.add(Die[d].toLowerCase());
+        return e;
+    }).forEach(e => available.appendChild(e));
+
+    played.innerHTML = '';
+    gamestate.playedDice.map(d => {
+        let e = document.createElement('div');
+        e.classList.add('die');
+        e.classList.add(Die[d.die].toLowerCase());
+        e.textContent = DieSide[d.side];
+        return e;
+    }).forEach(e => played.appendChild(e));
+
+    in_hand.innerHTML = '';
+    gamestate.inHand.map(d => {
+        let e = document.createElement('div');
+        e.classList.add('die');
+        e.classList.add(Die[d].toLowerCase());
+        return e;
+    }).forEach(e => in_hand.appendChild(e));
 
     brains.textContent = gamestate.playedDice.filter(d => d.side == DieSide.Brain).length.toString();
     shots.textContent = gamestate.playedDice.filter(d => d.side == DieSide.Shot).length.toString();
