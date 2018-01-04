@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Zombie Dice</title>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        Available: <span id="available"></span><br />
+        In hand: <span id="in-hand"></span><br />
+        Played: <span id="played"></span><br />
+        Brains: <span id="brains">0</span>, Shots: <span id="shots">0</span><br />
+
+        <div class="button-grid">
+            <button id="button-start" onclick="start();">Start</button>
+            <button id="button-take" onclick="take();" disabled>Take</button>
+            <button id="button-play" onclick="play();" disabled>Play</button>    
+        </div>
+        
+        <script src="main.js"></script>
+    </body>
+</html>
