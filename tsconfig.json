@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "system",
+    "rootDir": "src",
+    "outFile": "out/main.js",
+    "removeComments": true,
+    "strict": true,
+  }
+}

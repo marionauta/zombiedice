@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "repository": "git@github.com:marionauta/zombiedice.git",
+  "scripts": {
+    "build": "./node_modules/.bin/tsc"
+  },
+  "devDependencies": {
+    "typescript": "^3.1.3"
+  }
+}
