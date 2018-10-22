@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "system",
+    "module": "commonjs",
     "rootDir": "src",
-    "outFile": "out/main.js",
+    "outDir": "out",
     "removeComments": true,
     "strict": true,
   }
